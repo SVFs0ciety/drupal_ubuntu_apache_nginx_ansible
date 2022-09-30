@@ -1,0 +1,29 @@
+    - name: 'Create Folder Drupal'
+      file: 
+        path: /var/www/html/drupal
+        state: directory
+
+    - name: 'Drupal Download Package'
+      get_url:
+        timeout: 300 
+        url: https://www.drupal.org/download-latest/tar.gz      
+        dest: /usr/src/tar.gz
+      register: output
+
+    - name: 'Extracting package'
+      when: output.changed == true
+      unarchive:
+        src: /usr/src/tar.gz
+        dest: /usr/src/
+        remote_src: yes
+
+    - name: 'Move unzip catalog Drupal in root directory'
+      shell: mv /usr/src/drupal-9.4.7/* /var/www/html/drupal
+
+    - name: 'Change the ownership of Drupal directory to the www-data user'
+      file:
+        path: /var/www/html/drupal
+        state: directory
+        recurse: yes
+        owner: www-data
+        group: www-data

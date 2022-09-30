@@ -1,0 +1,17 @@
+    - name: 'Install Apache'
+      apt: name=apache2 update_cache=yes state=latest
+
+    - name: 'Set up Apache virtualHost'
+      template:
+        src: "files/apache/drupal.conf"
+        dest: "/etc/apache2/sites-available/"
+
+    - name: 'Enable new site'
+      shell: /usr/sbin/a2ensite drupal.conf
+
+    - name: 'Disable default Apache site'
+      shell: /usr/sbin/a2dissite 000-default.conf
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
