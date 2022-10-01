@@ -1,4 +1,4 @@
-# drupal_ubuntu_apache_nginx_ansible
+# Drupal
 I<strong>Install Drupal Revolution for Ubuntu (Apache Nginx)<br>
 
 <h1>Each directory has a Readme with installation instructions.</h1>
