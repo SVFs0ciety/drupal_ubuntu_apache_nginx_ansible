@@ -1,2 +1,6 @@
 # drupal_ubuntu_apache_nginx_ansible
-Install Drupal Ubuntu 18.04 or higher (Apache,Nginx)
+I<strong>Install Drupal Revolution for Ubuntu (Apache Nginx)<br>
+
+<h1>Each directory has a Readme with installation instructions.</h1>
+
+<strong>Installation Ubuntu 18.04 or higher<strong>
